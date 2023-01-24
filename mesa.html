@@ -59,9 +59,11 @@ Música de https://www.fiftysounds.com/es/--->
     <!-- Cargamos la imagen de fondo principal de la escena-->
     <a-sky src="#restaurante" id="sky"></a-sky>
 
-    <a-camera>
-      <a-cursor color="red" fuse="true"></a-cursor>
-    </a-camera>
+   <a-entity id="camera" position="0 1.6 0 " camera="" look-controls="" wasd-controls=""> </a-entity>
+  <a-entity cursor="rayOrigin: mouse"></a-entity>      
+           
+
+<a-entity laser-controls= "hand: right"></a-entity>
 
    <a-sound src="#audio" autoplay="true" loop="true" volume="2" ></a-sound>
 
@@ -81,7 +83,7 @@ Música de https://www.fiftysounds.com/es/--->
 <a-box scale="0.7 0.7 0.1" position="-2.7 0.2 -2.5" src="#pastela" mylink="href:https://www.youtube.com/watch?v=YC7-gejHwDA&t=9s;"></a-box>
 <a-box scale="0.4 0.4 0.1" position="2.6 2.6 -2" src="#logo" mylink="href:index.html"></a-box>
 
-<a-sound src="#audio2" autoplay="true" loop="true" volume="2" ></a-sound>
+<a-sound src="#audio" autoplay="true" loop="true" volume="2" ></a-sound>
 
 </a-scene>
 
