@@ -48,9 +48,11 @@ Música de https://www.fiftysounds.com/es/-->
     <!-- Cargamos la imagen de fondo principal de la escena-->
     <a-sky src="#mirador" id="sky"></a-sky>
     
-    <a-camera>
-      <a-cursor color="#eed482" fuse="true"></a-cursor>
-    </a-camera>
+ <a-entity id="camera" position="0 1.6 0 " camera="" look-controls="" wasd-controls=""> </a-entity>
+  <a-entity cursor="rayOrigin: mouse"></a-entity>      
+           
+
+<a-entity laser-controls= "hand: right"></a-entity>
 
     <a-sound src="#audio" autoplay="true" loop="true" volume="2" ></a-sound>
 
