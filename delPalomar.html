@@ -1,0 +1,93 @@
+<html>
+
+  <head>
+    <title>Del Palomar...</title>
+    <meta name="description" content="Imágenes y vídeos 3D">
+<!--Incluimos la librería A-Framey la librería del entorno 3D de entornos predefinidos-->
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+  <!--Incluimos un scrip para el control del ratón-->
+  <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js">
+    document.querySelector('a-link').navigate('index.html');</script>
+<script src=" https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js "></script> 
+<!-- Scrip para visualizar el cambio de fotos-->
+<script src="RECURSOS/index.js"></script>
+
+<!-- Scrip para la navegación entre páginas-->
+<script>
+  // component declaration
+  AFRAME.registerComponent("mylink", {
+    // define a url in the schema
+    schema: {
+      href: {}
+    },
+    init: function() {
+      // when clicked - change the location:
+      this.el.addEventListener("click", (e) => {
+        window.location = this.data.href;
+      })
+    }
+  })
+</script>
+
+
+  </head>
+
+
+  <body>
+
+  <a-scene>
+    <a-assets>
+   
+      <!-- Imágenes descargadas con el google maps mediante la aplicación Street View Download 360º -->
+      <img id="boadilla" src="RECURSOS/boadilla.jpg" />
+      <img id="castromocho" src="RECURSOS/castromocho.jpg">
+      <img id="campos" src="RECURSOS/campos.jpg" />
+      <img id="palomar" src="RECURSOS/palomar3D2.jpg" />
+      <img id="logo" src="RECURSOS/logo.png" />
+
+
+      <!--Añadimos audio - efecto de sonido de paloma--->
+      <audio id="audio2" src="RECURSOS/amanecer.mp3" preload="auto"></audio>
+
+
+    </a-assets>
+
+
+    <!-- Cargamos la imagen de fondo principal de la escena-->
+    <a-sky src="#palomar" id="sky"></a-sky>
+
+    <a-camera>
+      <a-cursor color="#eed482" fuse="true"></a-cursor>
+    </a-camera>
+
+
+
+<!-- Texto de la pantalla principal y posiciones de los mismos-->
+    <a-text value="DEL PALOMAR..." color="#eed482" position="-3 3.5 -3" scale="4 4 4"></a-text>
+    <a-text value="BOADILLA DE RIOSECO" color="#dae1e5" position="-3.5 1.3 -3" scale="1 1 1"></a-text>
+    <a-text value="CASTROMOCHO" color="#dae1e5" position="-0.8 1.3 -3" scale="1 1 1"></a-text>
+    <a-text value="TIERRA DE CAMPOS" color="#dae1e5" position="1.3 1.3 -3" scale="1 1 1"></a-text>
+    <a-text value="Menu Principal" color="#375E77" position="3.8 3 -3 " scale="0.5 0.5 0.5"></a-text>
+    <a-text value="Accede a diferentes modelos de palomares en 3D " color="#375E77" position="-1.9 2.6 -3 " scale="0.8 0.8 0.8"></a-text>
+    <a-text value="realizados por Javi Raimundo y disponibles" color="#375E77" position="-1.7 2.3 -3 " scale="0.8 0.8 0.8"></a-text>
+    <a-text value="https://sketchfab.com" color="#375E77" position="-1.4 2 -3 " scale="0.8 0.8 0.8"></a-text>
+
+
+    <a-box scale="0.8 0.8 0.1" position="-1.5 0.8 -2" src="#boadilla" mylink="href:https://sketchfab.com/3d-models/palomar-cuadrado-en-boadilla-de-rioseco-f554d7b06e9f4c1cbf7403762e641665;"></a-box>
+    <a-box scale="0.8 0.8 0.1" position="0 0.8 -2" src="#castromocho" mylink="href:https://sketchfab.com/3d-models/palomar-circular-en-castromocho-palencia-d1a2a75b8d794d8c8a31ef026ab7b73a;"></a-box>
+    <a-box scale="0.8 0.8 0.1" position="1.5 0.8 -2" src="#campos" mylink="href:https://sketchfab.com/3d-models/palomar-circular-en-tierra-de-campos-fecd6309b66d4344b9de6f1348c331a3;""></a-box>
+    <a-box scale="0.4 0.4 0.1" position="2.8 2.8 -2" src="#logo" mylink="href:index.html"></a-box>
+ 
+    <a-sound src="#audio2" autoplay="true" loop="true" volume="2" ></a-sound>
+
+
+  </a-scene>
+
+
+
+
+</body>
+</html>
+
+ 

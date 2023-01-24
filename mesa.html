@@ -1,0 +1,94 @@
+<html>
+
+  <head>
+    <title>...a la mesa</title>
+    <meta name="description" content="Imágenes y vídeos 3D">
+<!--Incluimos la librería A-Framey la librería del entorno 3D de entornos predefinidos-->
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+  <!--Incluimos un scrip para el control del ratón-->
+  <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js">
+    document.querySelector('a-link').navigate('index.html');</script>
+<script src=" https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js "></script> 
+<!-- Scrip para visualizar el cambio de fotos-->
+<script src="RECURSOS/index.js"></script>
+
+<!-- Scrip para la navegación entre páginas-->
+<script>
+  // component declaration
+  AFRAME.registerComponent("mylink", {
+    // define a url in the schema
+    schema: {
+      href: {}
+    },
+    init: function() {
+      // when clicked - change the location:
+      this.el.addEventListener("click", (e) => {
+        window.location = this.data.href;
+      })
+    }
+  })
+</script>
+
+
+  </head>
+
+
+  <body>
+
+  <a-scene>
+    <a-assets>
+   
+      <!-- Imágenes descargadas con el google maps mediante la aplicación Street View Download 360º -->
+      <img id="mexicana" src="RECURSOS/mexicana.jpg" />
+      <img id="pastela" src="RECURSOS/pastela.png">
+      <img id="campos" src="RECURSOS/campos.jpg" />
+      <img id="restaurante" src="RECURSOS/mesa.png">
+      <img id="logo" src="RECURSOS/logo.png" />
+
+
+      <!--Añadimos audio - Obra: Sin Planes, SE
+Música de https://www.fiftysounds.com/es/--->
+<audio id="audio" src="RECURSOS/restaurante.mp3" preload="auto"></audio>
+
+
+
+    </a-assets>
+
+
+    <!-- Cargamos la imagen de fondo principal de la escena-->
+    <a-sky src="#restaurante" id="sky"></a-sky>
+
+    <a-camera>
+      <a-cursor color="red" fuse="true"></a-cursor>
+    </a-camera>
+
+
+
+<!-- Texto de la pantalla principal y posiciones de los mismos-->
+<a-text value="...A LA MESA" color="red" position="-5.3 3.5 -3.5" scale="4 4 4 "></a-text>
+<a-text value="PICHON" color="red" position="2.4 0.8 -3" scale="1 1 1"></a-text>
+<a-text value="A LA MEXICANA" color="red" position="2 0.5 -3" scale="1 1 1"></a-text>
+<a-text value="PASTELA" color="red" position="-2.6 0 -3" scale="1 1 1"></a-text>
+<a-text value="DE PICHON" color="red" position="-2.8 -0.4 -3" scale="1 1 1"></a-text>
+<a-text value="Menu Principal" color="#375E77" position="3.5 2.55 -3 " scale="0.5 0.5 0.5"></a-text>
+<a-text value="Accede a diferentes recetas elaboradas" color="#375E77" position="-1.65 1.95 -3 " scale="0.8 0.8 0.8"></a-text>
+<a-text value="por los prestigiosos Chefs" color="#375E77" position="-1.3 1.65 -3 " scale="0.8 0.8 0.8"></a-text>
+<a-text value="Alvar Hinojal y Victor Martin" color="#375E77" position="-1.3 1.35 -3 " scale="0.8 0.8 0.8"></a-text>
+
+
+<a-box scale="0.7 0.7 0.1" position="2.4 0.2 -2.5" src="#mexicana" mylink="href:https://www.youtube.com/watch?v=VRir4P8Pfr4&t=4s"></a-box>
+<a-box scale="0.7 0.7 0.1" position="-2.7 0.2 -2.5" src="#pastela" mylink="href:https://www.youtube.com/watch?v=YC7-gejHwDA&t=9s;"></a-box>
+<a-box scale="0.4 0.4 0.1" position="2.6 2.6 -2" src="#logo" mylink="href:index.html"></a-box>
+
+<a-sound src="#audio2" autoplay="true" loop="true" volume="2" ></a-sound>
+
+</a-scene>
+
+
+
+
+</body>
+</html>
+
+ 

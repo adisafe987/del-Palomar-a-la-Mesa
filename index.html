@@ -1,0 +1,79 @@
+<html>
+
+  <head>
+    <title>Del Palomar a la mesa</title>
+    <meta name="PEC3" content="Imágenes y vídeos 3D">
+<!--Incluimos la librería A-Framey la librería del entorno 3D de entornos predefinidos-->
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+  <!--Incluimos un scrip para el control del ratón-->
+  <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js">
+    document.querySelector('a-link').navigate('index.html');</script>
+<script src=" https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js "></script> 
+<!-- Scrip para la navegación entre páginas-->
+<script>
+  // component declaration
+  AFRAME.registerComponent("mylink", {
+    // define a url in the schema
+    schema: {
+      href: {}
+    },
+    init: function() {
+      // when clicked - change the location:
+      this.el.addEventListener("click", (e) => {
+        window.location = this.data.href;
+      })
+    }
+  })
+</script>
+  </head>
+
+  <body>
+  <a-scene>
+    <a-assets>
+      <!-- Imágenes descargadas con el google maps mediante la aplicación Street View Download 360º -->
+      <img id="mirador" src="RECURSOS/mirador.jpg" />
+      <img id="palomar" src="RECURSOS/palomar.jpg" />
+      <img id="pichon" src="RECURSOS/pichon.JPG" />
+      <img id="logo" src="RECURSOS/logo.png" />
+      <img id="img" src="RECURSOS/img_video.jpg" />
+
+    
+      <!--Añadimos audio - Obra: Siempre Avanzando
+Música de https://www.fiftysounds.com/es/-->
+      <audio id="audio" src="RECURSOS/musicaIndex.mp3" preload="auto"></audio>
+
+    </a-assets>
+
+    <!-- Cargamos la imagen de fondo principal de la escena-->
+    <a-sky src="#mirador" id="sky"></a-sky>
+    
+    <a-camera>
+      <a-cursor color="#eed482" fuse="true"></a-cursor>
+    </a-camera>
+
+    <a-sound src="#audio" autoplay="true" loop="true" volume="2" ></a-sound>
+
+<!-- Texto de la pantalla principal y posiciones de los mismos-->
+
+
+    <a-text value="DEL PALOMAR A LA MESA" color= "#eed482" position="-4 3.5 -3" scale="3 3 3 "></a-text>
+    <a-text value="PALOMARES" color="#dae1e5" position="-3 1.4 -3 " scale="1 1 1"></a-text>
+    <a-text value="RECETAS" color="#dae1e5" position="1.8 1.4 -3 " scale="1 1 1"></a-text>
+    <a-text value="QUIENES SOMOS" color="#dae1e5" position="-0.8 -0.3 -3 " scale="1 1 1"></a-text>
+
+    
+<!--Enlaces a otras páginas-->
+    <a-box scale="0.8 0.8 0.1" position="-1.5 2 -2" src="#palomar" mylink="href:delPalomar.html;"></a-box>
+    <a-box scale="0.8 0.8 0.1" position="0 1 -2" src="#logo" mylink="href:https://www.alasdecampos.com/quienessomos/;"></a-box>
+    <a-box scale="0.8 0.8 0.1" position="1.5 2 -2" src="#pichon" mylink="href:mesa.html;"></a-box>
+
+
+</body>
+</html>
+<!-- colores 
+
+azul #375E77
+azul claro #dae1e5
+marrón   #eed482 -->
+ 
